@@ -41,11 +41,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
-    public Employee update(Employee employee) {
-        return null;
-    }
-
-    @Override
     public void deleteById(int employeeId) {
         Session session = entityManager.unwrap(Session.class);
         Query<Employee> query = session.createQuery("from Employee where id=:employeeId", Employee.class);
