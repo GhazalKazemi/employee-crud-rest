@@ -4,10 +4,7 @@ import com.springboot.employeecrudrest.dao.EmployeeDAOImpl;
 import com.springboot.employeecrudrest.entity.Employee;
 import com.springboot.employeecrudrest.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,4 +33,10 @@ public class EmployeeRestController {
     }
 
 
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee employee){
+        employee.setId(0);
+        employeeService.save(employee);
+        return employee;
+    }
 }
