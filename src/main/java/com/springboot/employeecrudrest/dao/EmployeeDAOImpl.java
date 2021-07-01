@@ -18,7 +18,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
-    @Transactional
     public List<Employee> findAll() {
         Session session = entityManager.unwrap(Session.class);
         Query<Employee> query = session.createQuery("from Employee", Employee.class);
@@ -27,7 +26,6 @@ public class EmployeeDAOImpl implements EmployeeDAO{
     }
 
     @Override
-    @Transactional
     public Employee findById(int employeeId) {
         Session session = entityManager.unwrap(Session.class);
         Employee employee = session.get(Employee.class, employeeId);
